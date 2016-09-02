@@ -1,9 +1,11 @@
 ---
 layout: default
-title: 文章目录
+title: 我的Blog
 ---
-{% if site.theme == 'kunka' %}
-	{% include {{site.theme}}_index.html %}
-{% else %}
-	{% include default_index.html %}
-{% endif %}
+<h2>{{ page.title }}</h2>
+<p>最新文章</p>
+<ul>
+  {% for post in site.posts %}
+  <li>{{ post.date | date_to_string }} <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
